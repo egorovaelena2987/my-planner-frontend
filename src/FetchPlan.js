@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 const getAllPlans = (setPlan) => {
-    axios.get("https://planner-frontend-ms5d.onrender.com")
+    axios.get('https://backend-plan-new.onrender.com')
     .then(({data}) => {console.log(data)
         setPlan(data)
     })
 }
 const addPlan = (name, setName, setPlan) => {
-    axios.post('https://planner-frontend-ms5d.onrender.com/savePlan', {name})
+    axios.post('https://backend-plan-new.onrender.com/savePlan', {name})
     .then((data) => {
         console.log(data);
         setName("");
@@ -15,7 +15,7 @@ const addPlan = (name, setName, setPlan) => {
     })
 }
 const editPlan = (planId, name, setName, setPlan, setEditing) => {
-    axios.put('https://planner-frontend-ms5d.onrender.com/editPlan', {_id:planId, name})
+    axios.put('https://backend-plan-new.onrender.com/editPlan', {_id:planId, name})
     .then((data) => {
         console.log(data);
         setName("");
@@ -24,7 +24,7 @@ const editPlan = (planId, name, setName, setPlan, setEditing) => {
     })
 }
 const deletePlan = (_id, setPlan) => {
-    axios.post('https://planner-frontend-ms5d.onrender.com/deletePlan', {_id})
+    axios.post('https://backend-plan-new.onrender.com/deletePlan', {_id})
     .then((data) => {
         console.log(data);
         getAllPlans(setPlan)
